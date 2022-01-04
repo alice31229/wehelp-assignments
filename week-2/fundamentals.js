@@ -1,3 +1,20 @@
+// answer
+
+// 6
+// 30
+// 46666.666666666664
+// 120
+// 30
+// -2
+// 0
+// [0, 2]
+// 2
+// 4
+// 0
+// 3
+
+////////////
+
 // Q1 使用迴圈計算最小值到最大值之間，所有整數的總和
 function calculate(min, max){
     // 請用你的程式補完這個函式的區塊
@@ -52,20 +69,60 @@ function maxProduct(nums){
         console.log(max1*nums[1]);
     }
     else if (nums.length>2){
+        let pos=[];
+        let neg=[];
+        let pos_max=0;
+        let neg_max=0;
+
         for (n of nums){
-            if (n>=max1){
-                max1=n;
+            if (n>=0){
+                pos.push(n);
+            }else{
+                neg.push(n);
             }
         }
-        let d=nums.indexOf(max1);
-        nums.splice(d,1);
-        let max2=nums[0];
-        for (n of nums){
-            if (n>=max2){
-                max2=n;
+
+        if (pos.length>1){
+            let max1=pos[0];
+            for (n of pos){
+                if (n>=max1){
+                    max1=n;
+                }
             }
+            let d=pos.indexOf(max1);
+            pos.splice(d,1);
+            let max2=pos[0];
+            for (n of pos){
+                if (n>=max2){
+                    max2=n;
+                }
+            }
+            pos_max=max1*max2;
         }
-        console.log(max1*max2);
+
+        if (neg.length>1){
+            let max1=neg[0];
+            for (n of neg){
+                if (-n>=-max1){
+                    max1=n;
+                }
+            }
+            let d=neg.indexOf(max1);
+            neg.splice(d,1);
+            let max2=neg[0];
+            for (n of neg){
+                if (-n>=-max2){
+                    max2=n;
+                }
+            }
+            neg_max=max1*max2;
+        }
+        if (neg_max>pos_max){
+            console.log(neg_max);
+        }else{
+            console.log(pos_max);
+        }
+        
     }
     
     }
@@ -73,6 +130,7 @@ maxProduct([5, 20, 2, 6]) // 得到 120
 maxProduct([10, -20, 0, 3]) // 得到 30
 maxProduct([-1, 2]) // 得到 -2
 maxProduct([-1, 0, 2]) // 得到 0
+maxProduct([-1,-2,0]) // 得到 2
 
 //////////
 

@@ -46,21 +46,53 @@ def maxProduct(nums):
     if len(nums)==2:
         print(max1*nums[1])
     elif len(nums)>2:
+        pos=[]
+        neg=[]
         for n in nums:
-            if n>=max1:
-                max1=n
-        nums.remove(max1)
-        max2=nums[0]
-        for n in nums:
-            if n>=max2:
-                max2=n
+            if n>=0:
+                pos.append(n)
+            else:
+                neg.append(n)
         
-        print(max1*max2)
+        if len(pos)>1:
+            max1=pos[0]
+            for n in pos:
+                if n>=max1:
+                    max1=n
+            pos.remove(max1)
+            max2=pos[0]
+            for n in pos:
+                if n>=max2:
+                    max2=n
+            pos_max=max1*max2
+        else:
+            pos_max=0
+
+        if len(neg)>1:
+            max1=neg[0]
+            for n in neg:
+                if -n>=-max1:
+                    max1=n
+            neg.remove(max1)
+            max2=neg[0]
+            for n in neg:
+                if -n>=-max2:
+                    max2=n
+            neg_max=max1*max2
+            
+        else:
+            neg_max=0
+            
+        if neg_max>pos_max:
+            print(neg_max)
+        else:
+            print(pos_max)
 
 maxProduct([5, 20, 2, 6]) # 得到 120
 maxProduct([10, -20, 0, 3]) # 得到 30
 maxProduct([-1, 2]) # 得到 -2
 maxProduct([-1, 0, 2]) # 得到 0
+maxProduct([-1,-2,0]) # 得到 2
 
 ###############
 
