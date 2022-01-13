@@ -4,8 +4,7 @@ let clist_name=[];
 let clist_img=[];
 
 function createdata() {
-  let src =
-    "https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment.json";
+  let src = "https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment.json";
   fetch(src)
     .then(function (response) {
       return response.json();
@@ -63,7 +62,6 @@ function createdata() {
         btn.style.paddingRight = '50px';
         document.querySelector('main').appendChild(btn);
 
-        //let btn = document.querySelector('.btn');
         btn.addEventListener('click', function(){
           let demand16 = {
             title:clist_name.slice(8,16),
@@ -72,11 +70,8 @@ function createdata() {
           const allEvents = eventsDomTree(demand16);
           // in plain JavaScript, you can use the appendChild() method to move the existing source element in the document to the target element
           document.querySelector('main').appendChild(btn);
-          //btn.style.borderStyle = 'bold';
-          //btn.style.borderWidth = 'thick';
           btn.style.borderRadius = '10px';
           btn.style.border = 'solid 2px';
-          //document.querySelector('.btn').style.border = '2px solid black';
 
         }, false);
         
