@@ -10,13 +10,13 @@ function createdata() {
       return response.json();
     })
     .then(function (result) {
-        let x = result.result.results;
+        let sites = result.result.results;
         let landmark = "";
-        for (let i of x) {
+        for (let i of sites) {
             landmark = i.stitle;
             clist_name.push(landmark);
         }
-        for (let i of x) {
+        for (let i of sites) {
             landmark = "https" + i.file.split("https")[1];
             clist_img.push(landmark);
         }
