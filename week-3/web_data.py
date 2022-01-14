@@ -8,7 +8,6 @@ response = urlopen(url)
 data = json.loads(response.read())
 data = data['result']['results']
 
-import csv
 
 # 開啟輸出的 CSV 檔案
 with open('data.csv', 'w', newline='') as csvfile:
