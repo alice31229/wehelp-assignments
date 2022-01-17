@@ -1,3 +1,5 @@
+# 函式動詞開頭
+
 from flask import Flask, request, redirect, render_template, session, url_for
 
 app = Flask(__name__)
@@ -19,6 +21,7 @@ def login():
     if input_userName=='test' and input_password=='test':
         return redirect(url_for('succeed'))
     else:
+        #return redirect('/error')
         global error_message
         if input_userName=='' or input_password=='':
             error_message = '請輸入帳號、密碼'
@@ -34,10 +37,11 @@ def succeed():
 
 @app.route('/error',methods=['GET','POST'])
 def fail():
-    if error_message=='':
+    try:
         error_query_string = request.args['message']
         return render_template('fail.html',message=error_query_string)
-    return render_template('fail.html',message=error_message)
+    except:
+        return render_template('fail.html',message=error_message)
 
 @app.route('/signout')
 def logOut():
