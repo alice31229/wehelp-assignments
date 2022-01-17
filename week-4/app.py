@@ -1,5 +1,3 @@
-# 函式動詞開頭
-
 from flask import Flask, request, redirect, render_template, session, url_for
 
 app = Flask(__name__)
@@ -21,7 +19,6 @@ def login():
     if input_userName=='test' and input_password=='test':
         return redirect(url_for('succeed'))
     else:
-        #return redirect('/error')
         global error_message
         if input_userName=='' or input_password=='':
             error_message = '請輸入帳號、密碼'
