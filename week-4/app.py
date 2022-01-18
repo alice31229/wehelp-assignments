@@ -20,12 +20,6 @@ def login():
         session['LogIn'] = True
         return redirect(url_for('succeed'))
     else:
-        # global error_message
-        # if input_userName=='' or input_password=='':
-        #     error_message = '請輸入帳號、密碼'
-        # else:
-        #     error_message = '帳號、或密碼輸入錯誤'
-        # return redirect('/error')
         session['username'] = input_userName
         session['password'] = input_password
         return redirect(url_for('fail'))
