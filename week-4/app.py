@@ -32,7 +32,7 @@ def succeed():
     else:
         return redirect(url_for('index'))
 
-@app.route('/error',methods=['GET','POST'])
+@app.route('/error')
 def fail():
     try:
         error_query_string = request.args['message']
