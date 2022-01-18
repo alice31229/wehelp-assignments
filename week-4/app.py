@@ -8,7 +8,7 @@ error_message = ''
 @app.route('/')
 def index():
     if 'LogIn' in session:
-        return render_template('succeed.html')
+        return redirect(url_for('succeed'))
     else:
         return render_template('homePage.html')
 
@@ -17,6 +17,7 @@ def login():
     input_userName = request.form['username']
     input_password = request.form['password']
     if input_userName=='test' and input_password=='test':
+        session['LogIn'] = True
         return redirect(url_for('succeed'))
     else:
         global error_message
@@ -27,10 +28,12 @@ def login():
         return redirect('/error')
 
 
-@app.route('/menber')
+@app.route('/member')
 def succeed():
-    session['LogIn'] = True
-    return render_template('succeed.html')
+    if 'LogIn' in session:
+        return render_template('succeed.html')
+    else:
+        return redirect(url_for('index'))
 
 @app.route('/error',methods=['GET','POST'])
 def fail():
