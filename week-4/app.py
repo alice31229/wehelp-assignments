@@ -5,8 +5,6 @@ from flask import Flask, request, redirect, render_template, session, url_for
 app = Flask(__name__)
 app.secret_key = 'session secret key' 
 
-error_message = ''
-
 @app.route('/')
 def index():
     if 'LogIn' in session:
