@@ -1,6 +1,5 @@
 # https://flask.palletsprojects.com/en/2.0.x/quickstart/#sessions
 
-from email import message
 from flask import Flask, request, redirect, render_template, session, url_for
 
 app = Flask(__name__)
