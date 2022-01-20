@@ -23,19 +23,14 @@ def login():
         session['LogIn'] = True
         return redirect(url_for('succeed'))
     else:
-        #return redirect('/error')
 
         if input_userName=='' or input_password=='':
             error_message = '請輸入帳號、密碼'
-            #return redirect(url_for('fail',message=error_message))
+
         else:
             error_message = '帳號、或密碼輸入錯誤'
-        #return redirect(f'/error/?message={error_message}')
-        return redirect(url_for('fail',message=error_message))
 
-        #session['username'] = input_userName
-        #session['password'] = input_password
-        #return redirect('/error/')
+        return redirect(url_for('fail',message=error_message))
 
 
 @app.route('/member/')
@@ -54,17 +49,6 @@ def fail():
     error_query_string = request.args['message']
     return render_template('fail.html',message=error_query_string)
 
-    # try:
-    #     error_query_string = request.args['message']
-    #     return render_template('fail.html',message=error_query_string)
-    # except:
-    #     #userName = session['username']
-    #     #password = session['password']
-    #     # if userName=='' or password=='':
-    #     #     error_message = '請輸入帳號、密碼'
-    #     # else:
-    #     #     error_message = '帳號、或密碼輸入錯誤'
-    #    return render_template('fail.html')
 
 @app.route('/signout')
 def logOut():
