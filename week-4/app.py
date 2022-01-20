@@ -45,7 +45,8 @@ def succeed():
 #def fail(message):
 def fail():
     #return render_template('fail.html',message=message)
-    error_query_string = request.args['message']
+    #error_query_string = request.args['message']
+    error_query_string = request.args.get('message')
     return render_template('fail.html',message=error_query_string)
 
 
