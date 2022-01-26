@@ -1,0 +1,12 @@
+cheat sheet for sql codes
+https://gist.github.com/bradtraversy/c831baaad44343cc945e76c2e30927b3
+
+資料庫本身表設計的一些原則，再來就是看一些商業邏輯上的資料型態(是需要公司其他 team 的大家一起討論的)
+
+
+小白 上課使用database; mysql with python code
+https://github.com/hibyby/GrandmaCan_sql_tutorial
+
+
+sql zoo from tony
+https://sqlzoo.net/wiki/SQL_Tutorial
