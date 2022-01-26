@@ -1,6 +1,6 @@
 ### 要求三：SQL CRUD
 
-![](demand3-1)
+![](demand3-1.png)
 
 ### 要求四：SQL Aggregate Functions
 
