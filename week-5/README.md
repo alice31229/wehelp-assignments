@@ -3,6 +3,8 @@
 <!--  ![This is table member](table_member.png) -->
 ![](demand3-1.png)
 ![](demand3-2.png)
+![](demand3-3.png)
+![](demand3-4.png)
 
 ### 要求四：SQL Aggregate Functions
 
