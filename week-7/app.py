@@ -1,10 +1,3 @@
-# https://flask.palletsprojects.com/en/2.0.x/quickstart/#sessions
-# https://www.w3schools.com/python/python_mysql_getstarted.asp
-
-# 建議：
-# 1. 請適當的使用 Cursor.execute() 的第二個參數來帶入變數到 SQL 語句中，它能幫助我們防止 SQL Injection 的攻擊。
-# 2. 可以試著研究 Connection Pool，能幫助我們後端的系統和資料庫的連線更加穩定有效率，未來會有用的 ~
-
 from flask import Flask, request, redirect, render_template, session, url_for
 import mysql.connector
 
@@ -103,9 +96,9 @@ def search():
 # 更新會員姓名
 @app.route('/update_username',methods=['POST'])
 def update_username():
-    update_json = {"ok":True}
     
     if 'LogIn' in session:
+        update_json = {"ok":True}
         update_Name = request.get_json()['name']
         ### session change; update username with mysql ###
         original_name = session['LogIn']
