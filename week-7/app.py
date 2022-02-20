@@ -1,10 +1,3 @@
-# https://flask.palletsprojects.com/en/2.0.x/quickstart/#sessions
-# https://www.w3schools.com/python/python_mysql_getstarted.asp
-
-# 建議：
-# 1. 請適當的使用 Cursor.execute() 的第二個參數來帶入變數到 SQL 語句中，它能幫助我們防止 SQL Injection 的攻擊。
-# 2. 可以試著研究 Connection Pool，能幫助我們後端的系統和資料庫的連線更加穩定有效率，未來會有用的 ~
-
 from flask import Flask, request, redirect, render_template, session, url_for
 import mysql.connector
 
@@ -86,7 +79,6 @@ def login():
 # 後端建立查詢會員資料的 API
 @app.route('/api/members')
 def search():
-    #try:
     member_query_string = request.args.get('username')
     sql = "SELECT * FROM members WHERE username = %s"
     val = tuple(member_query_string)
@@ -104,20 +96,6 @@ def search():
     except:
         return output_json
 
-    # except:
-    #     ### show a collection of members ###
-    #     sql = "SELECT * FROM members"
-    #     current_members = {"data":[]}
-    #     Cursor.execute(sql)
-    #     results = Cursor.fetchall()
-    #     member_info = {'id':0, 'name':0, 'username':0}
-    #     for m in results:
-    #         member_info['id'] = m[3]
-    #         member_info['name'] = m[0]
-    #         member_info['username'] = m[1]
-    #         current_members['data'].append(member_info)
-
-    #     return current_members
 
 # 修改姓名的功能
 @app.route('/api/member',methods=['POST'])
